@@ -14,8 +14,10 @@ import {
 
 const initialState = {
     isLoading: false,
+    Register: [],
+    Login: [],
     user: null,
-    error: null,
+    error: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -29,8 +31,9 @@ const reducer = (state = initialState, action) => {
         case REGISTER_SUCCESS:
             return {
                 ...state,
-                isLoading: false,
+                Register: [...state.Register, action.payload],
                 user: action.payload,
+                isLoading: false,
                 error: null,
             };
         case REGISTER_FAILURE:
@@ -49,6 +52,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
+                Login: [...state.Login, action.payload],
                 user: action.payload,
                 error: null,
             };

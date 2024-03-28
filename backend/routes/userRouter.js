@@ -10,16 +10,18 @@ const userRouter = express.Router();
 userRouter.post('/register', async (req, res) => {
     try {
         const { username, email, password } = req.body;
-
+        console.log("req", req.body)
         // Check if required fields are provided
         if (!email || !username || !password) {
-            return res.status(400).json({ message: 'Please provide all the fields'})
+            console.log("provide all the fileds")
+            return res.status(400).json({ message: 'Please provide all the fields' })
         }
 
         // Check for duplicate email
         const existingEmail = await UserModel.findOne({ email });
 
         if (existingEmail) {
+            console.log("existing mail")
             return res.status(409).json({ message: 'This Email or Username is already taken.' });
         } else {
             // Hash password and save user
@@ -27,7 +29,7 @@ userRouter.post('/register', async (req, res) => {
             const user = new UserModel({ username, email, password: hash });
 
             await user.save();
-
+            console.log("register")
             res.json({ message: 'User registered' });
         }
     } catch (err) {
@@ -44,6 +46,7 @@ userRouter.post('/login', async (req, res) => {
 
 
         if (!user) {
+            console.log("!user")
             return res.status(401).json({ message: "Invalid Credentials" });
         }
 
@@ -63,9 +66,10 @@ userRouter.post('/login', async (req, res) => {
             const uid = user._id;
             res.cookie('access_token', accessToken, { maxAge: 900000, httpOnly: true });
             res.cookie('refresh_token', refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
-
+            console.log("login")
             res.json({ message: 'Login Successfully', accessToken, refreshToken, uid });
         } else {
+            console.log("passwords do not match")
             res.status(401).json({ message: 'Invalid Credentials' });
         }
     } catch (err) {

@@ -32,7 +32,7 @@ function SignUpForm() {
     try {
       // Dispatch the register action
       const response = await dispatch(register({ username: name, email, password }));
-      console.log(response)
+      console.log(response, "e", email, "n", name, "p", password);
       if (response && response.data) {
         alert("User registered Successfully")
         navigate("/login");
