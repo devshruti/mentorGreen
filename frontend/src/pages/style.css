@@ -1,0 +1,22 @@
+
+.animated-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .animated-text span {
+    display: inline-block;
+    animation: showUp 0.5s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes showUp {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
