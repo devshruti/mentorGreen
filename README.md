@@ -21,7 +21,7 @@ This is a React application for managing tasks. Users can view, add, update, and
 
 ## Deployment
 
-backend deployment :- 
+backend deployment :- https://greenmentor-2-hpeu.onrender.com
 
 
 
