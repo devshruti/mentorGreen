@@ -64,8 +64,8 @@ userRouter.post('/login', async (req, res) => {
             });
 
             const uid = user._id;
-            res.cookie('access_token', accessToken, { maxAge: 900000, httpOnly: true });
-            res.cookie('refresh_token', refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true });
+            res.cookie('access_token', accessToken, { maxAge: 900000, httpOnly: false });
+            res.cookie('refresh_token', refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: false });
             console.log("login")
             res.json({ message: 'Login Successfully', accessToken, refreshToken, uid });
         } else {
