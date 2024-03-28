@@ -31,9 +31,15 @@ function SignUpForm() {
 
     try {
       // Dispatch the register action
-      dispatch(register({ username: name, email, password }));
-      alert("User registered Successfully")
-      navigate("/login");
+      const response = await dispatch(register({ username: name, email, password }));
+      console.log(response)
+      if (response && response.data) {
+        alert("User registered Successfully")
+        navigate("/login");
+      }
+      else {
+        alert("Unable to register user")
+      }
     } catch (error) {
       console.error("Error occurred:", error);
       alert(error.response.data.message);

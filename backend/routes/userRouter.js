@@ -13,7 +13,7 @@ userRouter.post('/register', async (req, res) => {
 
         // Check if required fields are provided
         if (!email || !username || !password) {
-            return res.status(400).json({ message: 'Please provide all the fields', error: err.message });
+            return res.status(400).json({ message: 'Please provide all the fields'})
         }
 
         // Check for duplicate email

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [state, setstate] = useState(false);
-    const [accessToken, setAccessToken] = useState("");
+    const [accessToken, setAccessToken] = useState("")
     const navigate = useNavigate();
     // const { setToken } = useAuth()
 
@@ -23,7 +23,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("access_token");
-        localStorage.removeItem("user_role")
+        localStorage.removeItem("email")
 
         setIsLoggedIn(false);
         setAccessToken("");

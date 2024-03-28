@@ -74,7 +74,7 @@ taskRouter.post("/create", async (req, res) => {
     });
 
     await task.save();
-    console.log("task",task , userId)
+    console.log("task", task, userId)
     res.status(200).json("Task Created Successfully!");
     console.log("created task")
   } catch (error) {

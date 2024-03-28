@@ -40,6 +40,7 @@ function SignInForm() {
 
         localStorage.setItem("access_token", accessToken);
         localStorage.setItem("refresh_token", refreshToken);
+        localStorage.setItem("email", email);
         localStorage.setItem('uid', uid)
         setAccessToken(accessToken);
         setRefreshToken(refreshToken);

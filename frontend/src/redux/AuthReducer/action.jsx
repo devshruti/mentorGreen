@@ -19,6 +19,7 @@ export const register = (userData) => async (dispatch) => {
     try {
         const response = await axios.post(`${process.env.React_App_Baseurl}/user/register`, userData);
         dispatch({ type: REGISTER_SUCCESS, payload: response.data });
+        return response
     } catch (error) {
         dispatch({ type: REGISTER_FAILURE, payload: error.message });
     }
