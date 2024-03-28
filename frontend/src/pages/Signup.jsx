@@ -38,7 +38,7 @@ function SignUpForm() {
         navigate("/login");
       }
       else {
-        alert("Unable to register user")
+        alert("User already registerd, login to continue!")
       }
     } catch (error) {
       console.error("Error occurred:", error);

@@ -51,7 +51,7 @@ function SignInForm() {
         navigate("/");
       } else {
         // Handle login failure
-        alert("Login Failed. Please try again.");
+        alert("Invalid credentials! Please try again.");
       }
     } catch (error) {
       console.error(error);
