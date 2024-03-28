@@ -59,7 +59,7 @@ userRouter.post('/login', async (req, res) => {
                 expiresIn: '7d'
             });
 
-            const refreshToken = jwt.sign({ userId: user._id }, process.env.refreshSecretkey, {
+            const refreshToken = jwt.sign({ userId: user._id }, process.env.refreshSecretKey, {
                 expiresIn: '30d'
             });
 
